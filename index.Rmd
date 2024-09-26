@@ -1,0 +1,17 @@
+---
+title: "Appunti - Analisi I"
+keywords: ["Analisi I", "Appunti"]
+lang: it-IT
+site: bookdown::bookdown_site
+output: 
+  bookdown::pdf_book:
+    includes:
+      in_header: "rsc/images/Patch-forceFigurePlacement.tex"
+documentclass: book
+fontsize: 11pt
+papersize: a4
+margin-left: 25mm
+margin-right: 25mm
+margin-top: 25mm
+margin-bottom: 25mm
+---

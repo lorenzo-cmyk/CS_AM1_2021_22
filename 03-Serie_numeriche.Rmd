@@ -1,0 +1,140 @@
+# Serie numeriche
+
+## Serie numeriche reali
+
+Con "serie numerica" si intende la sommatoria dei termini di una successione numerica: data la successione $\{a_{n}\}$, la serie associata è $\sum_{n=0}^{+\infty}a_{n}$.
+
+Con "somma parziale" si intende la sommatoria dei k termini di una successione numerica: data $\{a_{n}\}$ successione numerica, la somma parziale è definita come $S_{k}=\sum_{n=0}^{k}a_{n}$. È quindi possibile ricondurre la serie associata ad $\{a_{n}\}$ al limite: $\lim_{n\to +\infty}S_{k}$.
+
+### Carattere di una serie
+
+Data una successione $\{a_{n}\}$ e costruita $S_{k}$ la successione delle somme parziali $S_{k}=\sum_{n=0}^{k}a_{n}$; si dice che la serie numerica $\sum_{n=0}^{+\infty}a_{n}$ è:
+
+- Convergente: se esiste ed è finito $\lim_{n\to +\infty}S_{k}=l$; $l$ si dice "somma della serie".
+- Divergente: se $\lim_{n\to +\infty}S_{k}=\pm\infty$.
+- Irregolare: se il limite $\lim_{n\to +\infty}S_{k}=\nexists$.
+
+### Esempi notevoli
+
+- Sia $a_{n}=n$;
+  - $S_{k}=\sum_{n=0}^{k}a_{n}=\frac{k(k+1)}{2}$.
+  - La serie $\sum_{n=0}^{+\infty}a_{n}$ diverge a $+\infty$.
+- "Serie geometrica": Sia $a_{n}=q^{n}$;
+  - $S_{k}=\sum_{n=0}^{k}a_{n}=\frac{1-q^{k+1}}{1-q}$.
+  - La serie $\sum_{n=0}^{+\infty}a_{n}$ converge a $\frac{1}{1-q}$ se $|q|<1$;
+  - La serie $\sum_{n=0}^{+\infty}a_{n}$ diverge a $+\infty$ se $q\ge 1$;
+  - La serie $\sum_{n=0}^{+\infty}a_{n}$ è irregolare se $q\leq -1$.
+  - Il carattere della serie dipende dal comportamento, al limite, del termine $q^{k+1}$.
+- "Serie di Mengoli": Sia $a_{n}=\frac{1}{n(n+1)}$;
+  - La serie $\sum_{n=0}^{+\infty}a_{n}$ converge a 1 è infatti possibile riscrivere $a_{n}=\frac{1}{n(n+1)}=\frac{1}{n}-\frac{1}{n+1}$.
+  - Parte dei termini si annullano reciprocamente; la serie si dice dunque telescopica (vedi sotto).
+- "Serie armonica generalizzata": Sia $a_{n}=\frac{1}{n^{\alpha}}$ con $\alpha\in\mathbb{R}$;
+  - Se $\alpha\leq 1$ la serie $\sum_{n=0}^{+\infty}a_{n}$ diverge;
+  - Se $\alpha > 1$ la serie $\sum_{n=0}^{+\infty}a_{n}$ converge.
+  - Se $\alpha = 1$ la serie prende il nome di "serie armonica".
+
+### Serie telescopiche
+
+Una serie è telescopica se il suo termine generale $a_{n}$ è nella forma $a_{n}=b_{n}-b_{n+1}$ dove $b_{n}$ è anch'essa una successione di numeri in $\mathbb{R}$. Il carattere di $b_{n+1}$ determina quello della serie associata ad $a_{n}$.
+
+### ! Condizione necessaria per la convergenza di una serie
+
+Data una successione $a_{n}$; affinché la serie $\sum_{n=0}^{+\infty}a_{n}$ converga è necessario che $\lim_{n\to +\infty}a_{n}=0$.
+
+Dimostrazione: Sia dato che $\sum_{n=0}^{+\infty}a_{n}=l$ allora devo dimostrare che $\lim_{n\to +\infty}a_{n}=0$.
+
+Costruisco $S_{k}=\sum_{n=0}^{k}a_{n}$ e noto che: $S_{k+1}=a_{k+1}+\sum_{n=0}^{k}a_{n} (S_{k})$; ne consegue che: $a_{k+1}=S_{k+1}-S_{k}$ ma quindi $a_{n}= S_{n}-S_{n-1}$.
+
+Allora: $\lim_{n\to +\infty}a_{n}=\lim_{n\to +\infty}S_{n}-S_{n-1}=l-l=0$.
+
+Attenzione: il teorema esprime una condizione necessaria ma non sufficiente a garantire la convergenza di una serie.
+
+### Serie a termini positivi
+
+Data la serie $\sum_{n=0}^{+\infty}a_{n}$ essa si dice a termini positivi se $a_{n}\ge 0\;\forall n\in\mathbb{N}$ o più in generale se $a_{n}\ge 0\;\forall n\ge n_{0}$.
+
+Osservazione: Una serie a termini positivi non è mai irregolare
+
+#### ! Criterio del confronto
+
+Siano $\sum_{n=0}^{+\infty}a_{n}$ e $\sum_{n=0}^{+\infty}b_{n}$ due serie numeriche a termini positivi tali che $a_{n}\leq b_{n}\;\forall n\ge n_{0}$. Allora:
+
+- Se $\sum_{n=0}^{+\infty}b_{n}$ converge allora anche $\sum_{n=0}^{+\infty}a_{n}$ converge;
+- Se $\sum_{n=0}^{+\infty}a_{n}$ diverge allora anche $\sum_{n=0}^{+\infty}b_{n}$ diverge.
+
+Dimostrazione: Considero le somme parziali $S_{k}=\sum_{n=0}^{k}a_{n}$ e $T_{k}=\sum_{n=0}^{+\infty}b_{n}$; poiché $a_{n}\leq b_{n}\;\forall n\ge n_{0}$ allora si ha che $k\ge n_{1}\; S_{k}\leq T_{k}$.
+
+- Se $\sum_{n=0}^{+\infty}b_{n}$ converge allora $\lim_{k\to +\infty}T_{k}=t$ quindi per il teorema del confronto fra successioni $\lim_{k\to +\infty}S_{k}\leq \lim_{k\to +\infty}T_{k}=t$. $S_{k}=\sum_{n=0}^{k}a_{n}$ è a termini positivi quindi $\lim_{k\to +\infty}S_{k}\leq t$ ma allora $\sum_{n=0}^{+\infty}a_{n}$ converge.
+- Se $\sum_{n=0}^{+\infty}a_{n}$ diverge allora $\lim_{k\to +\infty}S_{k}=+\infty$ quindi per il teorema del confronto fra successioni $\lim_{k\to +\infty}T_{k}\ge \lim_{k\to +\infty}S_{k}=+\infty$. $T_{k}=\sum_{n=0}^{k}b_{n}$ è a termini positivi quindi $\lim_{k\to +\infty}T_{k}\ge +\infty$ ma allora $\sum_{n=0}^{+\infty}b_{n}$ diverge.
+
+#### ! Criterio del confronto asintotico
+
+Siano $\sum_{n=0}^{+\infty}a_{n}$ e $\sum_{n=0}^{+\infty}b_{n}$ due serie numeriche a termini positivi tali che $a_{n}\sim b_{n}$ e $\lim_{n\to +\infty}\frac{a_{n}}{b_{n}}=1$; allora due serie hanno lo stesso carattere.
+
+Dimostrazione: Dato che $\lim_{n\to +\infty}\frac{a_{n}}{b_{n}}=1$ allora $\forall\epsilon >0\;\exists n_{0}\in\mathbb{N}:\forall n\ge n_{0}\; |\frac{a_{n}}{b_{n}}-1|<\epsilon$; per definizione di modulo: $1-\epsilon<\frac{a_{n}}{b_{n}}<1+\epsilon$. Siccome $b_{n}\not ={0}\;\forall n\in\mathbb{N}$ allora $(1-\epsilon)(b_{n})<a_{n}<(1+\epsilon)(b_{n})$.
+
+Per il criterio del confronto:
+
+- Se $(1-\epsilon)(b_{n})<a_{n}$:
+  - Se $\sum_{n=0}^{+\infty}a_{n}$ converge allora $\sum_{n=0}^{+\infty}b_{n}$ converge;
+  - Se $\sum_{n=0}^{+\infty}b_{n}$ diverge allora $\sum_{n=0}^{+\infty}a_{n}$ diverge.
+- Se $a_{n}<(1+\epsilon)(b_{n})$:
+  - Se $\sum_{n=0}^{+\infty}b_{n}$ converge allora $\sum_{n=0}^{+\infty}a_{n}$ converge;
+  - Se $\sum_{n=0}^{+\infty}a_{n}$ diverge allora $\sum_{n=0}^{+\infty}b_{n}$ diverge.
+
+#### ! Criterio della radice e del rapporto
+
+Sia $\sum_{n=0}^{+\infty}a_{n}$ una serie a termini positivi. Considero $b=\lim_{n\to +\infty}\sqrt[n]{a_{n}}$ oppure $b=\lim_{n\to +\infty}\frac{a_{n+1}}{a_{n}}$.
+
+Allora:
+
+- Se $b>1$ la serie diverge;
+- Se $b<1$ la serie converge;
+- Se $b=1$ non si può dedurre nulla sul carattere della serie.
+
+Dimostrazione: Criterio della radice:
+
+- Se $b>1$ il termine generale $a_{n}$ non tende a 0; la condizione necessaria per la convergenza di una serie non è soddisfatta e $\sum_{n=0}^{+\infty}a_{n}$ diverge.
+- Se $b<1$ esiste $q\in\mathbb{R}: b<q<1$, per definizione di limite $\forall\epsilon >0\;\exists n_{0}\in\mathbb{N}:\forall n\ge n_{0} |\sqrt[n]{a_{n}}-b|<\epsilon$; in particolare quindi $\sqrt[n]{a_{n}}<b+\epsilon<q+\epsilon$ ma ciò significa che $a_{n}<(q+\epsilon)^{n}$. Siccome $\epsilon$ è "piccolo a piacere" suppongo che $q+\epsilon<1$; per il criterio del confronto deduco che $a_{n}<(q+\epsilon)^{n}=b_{n}$. Siccome $\sum_{n=0}^{+\infty}(q+\epsilon)^{n}$ è una serie geometrica di ragione $q+\epsilon<1$ essa converge dimostrando anche la convergenza di $\sum_{n=0}^{+\infty}a_{n}$.
+
+Dimostrazione: Criterio del rapporto:
+
+- Se $b>1$ il termine generale $a_{n}$ non tende a 0; la condizione necessaria per la convergenza di una serie non è soddisfatta e $\sum_{n=0}^{+\infty}a_{n}$ diverge.
+- Se $b<1$ esiste $q\in\mathbb{R}: b<q<1$, per definizione di limite $\forall\epsilon >0\;\exists n_{0}\in\mathbb{N}:\forall n\ge n_{0} |\frac{a_{n+1}}{a_{n}}-b|<\epsilon$; in particolare quindi $\frac{a_{n+1}}{a_{n}}<b+\epsilon<q+\epsilon$ ne posso dedurre che $\forall n\ge n_{0}$: $a_{n}<(q+\epsilon)^{n-n_{0}}a_{n_{0}}$. Siccome $\epsilon$ è "piccolo a piacere" suppongo che $q+\epsilon<1$; per il criterio del confronto deduco che $a_{n}<(q+\epsilon)^{n-n_{0}}a_{n_{0}}$. Siccome $\sum_{n=0}^{+\infty}(q+\epsilon)^{n-n_{0}}a_{n_{0}}$ è una serie geometrica di ragione $q+\epsilon<1$ essa converge dimostrando anche la convergenza di $\sum_{n=0}^{+\infty}a_{n}$.
+
+#### Criterio di sostituzione o condensazione
+
+Sia $\sum_{n=0}^{+\infty}a_{n}$ una serie a termini positivi tale che $a_{n}$ sia non crescente $a_{n}\ge a_{n+1}$. Allora la serie $\sum_{n=0}^{+\infty}a_{n}$ converge se e solo se converge $\sum_{n=0}^{+\infty}2^{n}a_{2}^{n}$.
+
+### Serie a termini non positivi
+
+#### Serie a termini negativi
+
+Sia $\sum_{n=0}^{+\infty}b_{n}$ una serie a termini negativi ($b_{n}\leq 0\;\forall n\in\mathbb{N}$) allora posso considerare la serie $\sum_{n=0}^{+\infty}a_{n}$ costruita come $a_{n}=-b_{n}$ e operare le stesse considerazioni fatte in precedenza sulle serie a termini positivi prestando particolare attenzione al segno invertito.
+
+#### Serie a termini di segno alterno
+
+Una serie $\sum_{n=0}^{+\infty}a_{n}$ si dice a segni alterni se è riconducibile alla forma: $\sum_{n=0}^{+\infty}(-1)^{n}b_{n}$ (con $b_{n}$ successione a termini positivi).
+
+##### Criterio di Leibniz
+
+Data una serie a segno alterno, questa converge se valgono le seguenti condizioni:
+
+- $\lim_{n\to +\infty}b_{n}=0$;
+- $b_{n}$ successione monotona decrescente.
+
+#### Serie a termini di segno variabile
+
+##### ! Criterio di convergenza assoluta
+
+Data una serie $\sum_{n=0}^{+\infty}a_{n}$ a segno variabile, definisco la serie $\sum_{n=0}^{+\infty}|a_{n}|$ (a termini positivi). La serie $\sum_{n=0}^{+\infty}a_{n}$ si dice che "converge assolutamente" se converge la serie $\sum_{n=0}^{+\infty}|a_{n}|$.
+
+Teorema: Sia $\sum_{n=0}^{+\infty}a_{n}$ una serie che converge assolutamente; allora tale serie converge anche semplicemente e vale la diseguaglianza: $|\sum_{n=0}^{+\infty}a_{n}|\leq \sum_{n=0}^{+\infty}|a_{n}|$.
+
+Dimostrazione: Sia $a_{n}$ una successione numerica a segno non costante allora può essere riscritta come: $a_{n}=(a_{n}+|a_{n}|)-|a_{n}|$ ma ciò vuol dire che la serie associata $\sum_{n=0}^{+\infty}a_{n}=\sum_{n=0}^{+\infty}a_{n}+|a_{n}|-\sum_{n=0}^{+\infty}|a_{n}|$.
+
+La serie $\sum_{n=0}^{+\infty}a_{n}$ converge se e solo se converge anche $\sum_{n=0}^{+\infty}a_{n}+|a_{n}|$. Si osserva che $a_{n}+|a_{n}|\ge 0$ e che $a_{n}+|a_{n}|\leq 2|a_{n}|$.
+
+Per il criterio del confronto: $\sum_{n=0}^{+\infty}a_{n}+|a_{n}|\leq\sum_{n=0}^{+\infty}2|a_{n}|$. Siccome $\sum_{n=0}^{+\infty}2|a_{n}|$ converge per ipotesi, allora anche $\sum_{n=0}^{+\infty}a_{n}+|a_{n}|$ converge; ciò significa in definitiva che $\sum_{n=0}^{+\infty}a_{n}$ converge.
+
+Ne consegue che la convergenza assoluta implica quella semplice.

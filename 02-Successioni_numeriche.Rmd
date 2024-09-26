@@ -1,0 +1,267 @@
+# Successioni numeriche
+
+## Successioni numeriche reali
+
+Una successione numerica è una legge che associa a ogni numero naturale $n\in\mathbb{N}$ un unico numero reale.
+$$a_{n}: n\in\mathbb{N}\rightarrow a_{n}\in\mathbb{R}$$
+
+### Successioni positive e negative
+
+La successione $a_{n}$ si dice:
+
+- "Positiva" se $a_{n}>0$ $\forall n\in\mathbb{N}$.
+- "Non negativa" se $a_{n}\ge 0$ $\forall n\in\mathbb{N}$.
+- "Negativa" se $a_{n}<0$ $\forall n\in\mathbb{N}$.
+- "Non positiva" se $a_{n}\leq 0$ $\forall n\in\mathbb{N}$.
+- "Definitivamente positiva" se $\exists n_{0}\in\mathbb{N}:\;\forall n\ge n_{0}\implies a_{n}>0$.
+- "Definitivamente negativa" se $\exists n_{0}\in\mathbb{N}:\;\forall n\ge n_{0}\implies a_{n}<0$.
+
+### Successioni limitate
+
+La successione $a_{n}$ si dice:
+
+- "Limitata superiormente" se $\exists M\in\mathbb{R}\;|\;\forall n\in\mathbb{N}\;a_{n}\leq M$.
+- "Limitata inferiormente" se $\exists m\in\mathbb{R}\;|\;\forall n\in\mathbb{N}\;a_{n}\ge m$.
+
+### Successioni monotone
+
+La successione $a_{n}$ si dice:
+
+- "Monotona crescente" se $\forall n\in\mathbb{N}\; a_{n+1}\ge a_{n}$.
+- "Monotona decrescente" se $\forall n\in\mathbb{N}\; a_{n+1}\leq a_{n}$.
+- "Monotona strettamente crescente" se $\forall n\in\mathbb{N}\; a_{n+1}> a_{n}$.
+- "Monotona strettamente decrescente" se $\forall n\in\mathbb{N}\; a_{n+1}<a_{n}$.
+
+### Successioni convergenti
+
+Una successione si dice "convergente" se esiste un numero $l\in\mathbb{R}$ (finito) tale che:
+
+$$\forall\epsilon>0\;\exists n_{0}\in\mathbb{N}:\;\forall n\ge n_{0}\; |a_{n}-l|<\epsilon$$
+In altre parole:
+
+$$\lim_{n\to +\infty}a_{n}=l$$
+
+### Successioni divergenti
+
+Una successione si dice "divergente" se:
+
+- Divergenza a $+\infty$: $\forall M>0\; \exists\overline{n}\in\mathbb{N}:\; a_{n}>M$.
+- Divergenza a $-\infty$: $\forall m>0\; \exists\overline{n}\in\mathbb{N}:\; a_{n}<-m$.
+
+Nota bene: esistono anche successioni irregolari o indeterminate che non sono né divergenti né convergenti.
+
+### ! Teorema di unicità del limite
+
+Sia $a_{n}$ una successione convergente a $l\in\mathbb{R}$. Allora tale limite $l$ è unico.
+
+Dimostrazione: La dimostrazione si svolge per assurdo. Suppongo che $\lim_{n\to +\infty}a_{n}=l$ e $\lim_{n\to +\infty}a_{n}=m$ con $l\not ={}m$.
+
+Per definizione di limite:
+
+- $\forall\epsilon >0\;\exists n_{0}\in\mathbb{N}:\; \forall n\ge n_{0}\; |a_{n}-l|<\epsilon$.
+- $\forall\epsilon >0\;\exists n_{1}\in\mathbb{N}:\; \forall n\ge n_{1}\; |a_{n}-m|<\epsilon$.
+
+Poiché $l\not ={}m$ posso calcolare $|l-m|$. $|l-m|=|l-a_{n}+a_{n}-m|=|(l-a_{n})+(a_{n}-m)|$. Per diseguaglianza triangolare: $|(l-a_{n})+(a_{n}-m)|\leq |l-a_{n}|+|a_{n}-m|$.
+
+Posso dedurne quindi che $|l-m|<2\epsilon$. Ma si raggiunge quindi un assurdo: per definizione questa proprietà deve valere $\forall\epsilon >0$ ma ciò è irrealistico infatti: $|l-m|=0$. Ne consegue che $l=m$.
+
+### ! Teorema: Una successione convergente è limitata
+
+Dimostrazione: Suppongo che $\lim_{n\to +\infty}a_{n}=l\in\mathbb{R}$.
+
+Allora $\forall\epsilon >0\;\exists n_{0}\in\mathbb{N}:\;\forall n\ge n_{0}\;|a_{n}-l|<\epsilon$.
+
+Scelgo $\epsilon =1$ ne consegue che $|a_{n}-l|<1$.
+
+Per diseguaglianza triangolare: $|a_{n}|=|a_{n}+l-l|\leq |a_{n}-l|+|l|\leq 1+|l|$ $\forall n\ge n_{0}$.
+
+Ovvero: $|a_{n}|\leq 1+|l|$ $\forall n\ge n_{0}$ quindi $a_{n}$ è limitata definitivamente.
+
+Considero l'insieme finito di elementi: $\{|a_{0}|;|a_{1}|;...;|a_{n_{0}-1}|;|a_{n_{0}}|\}$ e scelgo $M$ tale che $M=max(\{|a_{0}|;|a_{1}|;...;|a_{n_{0}-1}|;|a_{n_{0}}|\})$.
+
+Ne consegue che: $a_{n}\leq M$ $\forall n\in\mathbb{N}$.
+
+$a_{n}$ è quindi una successione limitata.
+
+### ! Teorema di esistenza del limite per successioni monotone
+
+Data una successione $a_{n}$ monotona crescente; $a_{n}$ ammette limite $l=sup(\{a_{n}\})$ e tale limite è finito se $a_{n}$ è limitata superiormente (convergenza a $l$) altrimenti è infinito se $a_{n}$ è illimitata (divergenza a $+ \infty$). Un analogo teorema esiste anche per le funzioni monotone decrescenti.
+
+Dimostrazione: Sia $a_{n}$ una successione crescente $\forall n\in\mathbb{N}\; a_{n+1}\ge a_{n}$ e superiormente limitata $\exists M\in\mathbb{R}:\; \forall n\in\mathbb{N}\; a_{n}\leq M$.
+
+$\{a_{n}\}$ è un insieme di numeri reali e quindi ammette estremo superiore $sup(\{a_{n}\})$ in virtù del fatto che $a_{n}$ è limitata superiormente. Intendo dimostrare che $sup(\{a_{n}\})$ è finito.
+
+Per definizione di estremo superiore: $\forall n\in\mathbb{N}\; a_{n}\leq sup(\{a_{n}\})\implies a_{n}-sup(\{a_{n}\})\leq 0$.
+
+Tuttavia $\forall\epsilon >0$ $sup(\{a_{n}\})$ non deve essere maggiorante: deve quindi esistere un $n_{0}\in\mathbb{N}$ tale che: $a_{n_{0}}>sup(\{a_{n}\})-\epsilon$.
+
+$a_{n}$ è successione monotona crescente quindi: $a_{n_{0}}<a_{n_{0}+1}<a_{n_{0}+2}<...\implies a_{n}>a_{n_{0}}>sup(\{a_{n}\})-\epsilon$ $\forall n\ge n_{0}$.
+
+Conosco quindi che:
+
+- $a_{n}-sup(\{a_{n}\})\leq 0$;
+- $a_{n}>sup(\{a_{n}\})-\epsilon$.
+
+Ovvero: $sup(\{a_{n}\})-\epsilon<a_{n}<sup(\{a_{n}\})<sup(\{a_{n}\})+\epsilon$.
+
+Riscrivo che: $\forall\epsilon >0\; \exists n_{0}\in\mathbb{N}:\; \forall n\ge n_{0}$ si ha che $-\epsilon<a_{n}<\epsilon$. In altre parole: $|a_{n}-sup(\{a_{n}\})|<\epsilon$.
+
+In conclusione: $\lim_{n\to +\infty}a_{n}=sup(\{a_{n}\})$ la successione $a_{n}$ converge a $sup(\{a_{n}\})$.
+
+Osservazione: non basta che una successione sia limitata affinché sia convergente.
+
+### ! Teorema del confronto per le successioni
+
+Siano $a_{n}$, $b_{n}$ e $c_{n}$ successioni tali che: $\lim_{n\to\infty}a_{n}=l=\lim_{n\to\infty}c_{n}$.
+
+Se esiste $\overline{n}\in\mathbb{N}:\;\forall n\ge\overline{n}\; a_{n}\leq b_{n}\leq c_{n}$, allora $\lim_{n\to\infty}b_{n}=l$.
+
+Dimostrazione:
+
+- $\forall\epsilon >0\;\exists n_{0}\in\mathbb{N}: \forall n\ge n_{0} |a_{n}-l|<\epsilon$
+- $\forall\epsilon >0\;\exists n_{1}\in\mathbb{N}: \forall n\ge n_{1} |c_{n}-l|<\epsilon$
+
+Quindi:
+
+- $\forall n\ge max\{n_{0},n_{1}\}\; l-\epsilon <a_{n}<l+\epsilon$
+- $\forall n\ge max\{n_{0},n_{1}\}\; l-\epsilon <c_{n}<l+\epsilon$
+
+D'altra parte $\forall n\ge \overline{n}\; a_{n}\leq b_{n}\leq c_{n}$, quindi: $\forall n\ge max\{n_{0},n_{1},\overline{n}\}$ si ha che $l-\epsilon <a_{n}\leq b_{n}\leq c_{n}<l+\epsilon$.
+
+Ovvero: $\forall\epsilon >0\;\exists\tilde{n}=max\{n_{0},n_{1},\overline{n}\}:\forall n\ge\tilde{n}$ $l-\epsilon<b_{n}<l+\epsilon$ cioè $|b_{n}-l|<\epsilon\implies \lim_{n\to\infty}b_{n}=l$.
+
+### ! Teorema di permanenza del segno
+
+Sia $a_{n}$ una successione convergente a $l\in\mathbb{R}$. Se $a_{n}$ è positiva allora $l\ge 0$.
+
+Dimostrazione: Sia premesso che:
+
+- $a_{n}\ge 0\; \forall n\in\mathbb{N}$;
+- $a_{n}$ successione convergente a $l\in\mathbb{R}$.
+
+$\lim_{n\to +\infty}a_{n}=l$ allora per definizione: $\forall\epsilon >0\;\exists n_{0}\in\mathbb{N}:\;\forall n\ge n_{0}\; |a_{n}-l|<\epsilon$.
+
+$-\epsilon<a_{n}-l<\epsilon\; \implies l-\epsilon<a_{N}<l+\epsilon$ ma sappiamo che $a_{n}\ge 0\;\forall n\in\mathbb{N}$ ma ne consegue allora che $0\leq a_{n}\leq l+\epsilon$.
+
+Finalmente possiamo affermare che $l+\epsilon>0\; \forall\epsilon >0$ e quindi che $l>0$.
+
+Osservazione: se $a_{n}$ converge a $l$ e $a_{n}\leq 0\;\forall n\in\mathbb{N}$ allora $l\leq 0$.
+
+### Confrontare due successioni
+
+Siano $a_{n}$ e $b_{n}$ due successioni infinite. Allora il limite $\lim_{n\to +\infty}\frac{a_{n}}{b_{n}}$ può essere:
+
+- $0$ se $a_{n}$ è di ordine inferiore rispetto a $b_{n}$
+- $\infty$ se $a_{n}$ è di ordine superiore rispetto a $b_{n}$
+- $l\not =0$ se $a_{n}$ e $b_{n}$ hanno lo stesso ordine.
+- $l$ non esiste se $a_{n}$ e $b_{n}$ non sono confrontabili.
+
+Siano $a_{n}$ e $b_{n}$ due successioni infinitesime. Allora il limite $\lim_{n\to +\infty}\frac{a_{n}}{b_{n}}$ può essere:
+
+- $0$ se $a_{n}$ è di ordine superiore rispetto a $b_{n}$
+- $\infty$ se $a_{n}$ è di ordine inferiore rispetto a $b_{n}$
+- $l\not =0$ se $a_{n}$ e $b_{n}$ hanno lo stesso ordine.
+- $l$ non esiste se $a_{n}$ e $b_{n}$ non sono confrontabili.
+
+Ricorda:
+
+- Una successione si dice "infinita" se $\lim_{n\to +\infty}a_{n}=+\infty$.
+- Una successione si dice "infinitesima" se $\lim_{n\to +\infty}a_{n}=0$.
+
+#### Successioni asintotiche
+
+Se $\lim_{n\to +\infty}\frac{a_{n}}{b_{n}}=1$ allora $a_{n}$ e $b_{n}$ si dicono asintotiche.
+
+La relazione di "asintotico" è una relazione di equivalenza. Sono dunque verificate le proprietà:
+
+- Riflessiva: $a_{n}\sim a_{n}$.
+- Simmetrica: $a_{n}\sim b_{n}\implies b_{n}\sim a_{n}$.
+- Transitiva: $a_{n}\sim b_{n}\wedge b_{n}\sim c_{n}\implies a_{n}\sim c_{n}$.
+
+Osservazione: se $a_{n}\sim b_{n}$ allora:
+
+- $a_{n}\cdot c_{n}\sim b_{n}\cdot c_{n}$.
+- $\frac{a_{n}}{c_{n}}\sim\frac{b_{n}}{c_{n}}$.
+
+Inoltre se $a_{n}\sim a'_{n}$, $b_{n}\sim b'_{n}$ e $c_{n}\sim c'_{n}$ allora:
+
+- $\frac{a_{n}\cdot b_{n}}{c_{n}}\sim \frac{a'_{n}\cdot b'_{n}}{c'_{n}}$.
+
+Attenzione: non vale l'analogo per le forme algebriche ed esponenziali.
+
+### Criterio del rapporto
+
+Sia $a_{n}$ una successione positiva; se esiste $\lim_{n\to +\infty}\frac{a_{n}+1}{a_{n}}$ allora:
+
+- se $l<1$ la successione converge a $0$.
+- se $l>1$ la successione converge a $+\infty$.
+- se $l=1$ non si può stabilire il carattere di $a_{n}$.
+
+## Algebra dei limiti
+
+### Regole e proprietà per successioni convergenti
+
+Siano $a_{n}$ e $b_{n}$ due successioni convergenti tali che $\lim_{n\to +\infty}a_{n}=l$ e $\lim_{n\to +\infty}b_{n}=m$.
+
+Allora:
+
+- $\lim_{n\to +\infty}(a_{n}\pm b_{n})=l\pm m$.
+- $\lim_{n\to +\infty}(a_{n}\cdot b_{n})=l\cdot m$.
+- $\lim_{n\to +\infty}\frac{a_{n}}{b_{n}}=\frac{a_{n}}{b_{n}}$ con $b_{n}\not = 0$ e $m\not = 0$.
+- $\lim_{n\to +\infty}(a_{n})^{b_{n}}=l^{m}$ con $a_{n}\ge 0$ e $l\ge 0$.
+
+### Regole e proprietà per successioni convergenti e divergenti
+
+Siano $a_{n}$ e $b_{n}$ due successioni tali che $\lim_{n\to +\infty}a_{n}=l$ e $\lim_{n\to +\infty}b_{n}=+\infty$.
+
+Allora:
+
+- $\lim_{n\to +\infty}(a_{n}+b_{n})=+\infty$.
+- $\lim_{n\to +\infty}(a_{n}\cdot b_{n})=\begin{cases} +\infty\; se\; l>0 \\ -\infty\; se\; l<0\end{cases}$.
+- $\lim_{n\to +\infty}\frac{a_{n}}{b_{n}}=0$ se $a_{n}\not =0$ e $l\not =0$.
+- $\lim_{n\to +\infty}\frac{a_{n}}{b_{n}}=\begin{cases} +\infty\; se\; l>0 \\ -\infty\; se\; l<0\end{cases}$.
+- $\lim_{n\to +\infty}(a_{n})^{b_{n}}=\begin{cases} +\infty\;se\;a_{n}>1\;e\;l>1 \\ 0\;se\;0<a_{n}<1\;e\;0<l<1\end{cases}$.
+
+### Regole e proprietà per successioni divergenti
+
+Siano $a_{n}$ e $b_{n}$ due successioni divergenti tali che $\lim_{n\to +\infty}a_{n}=+\infty$ e $\lim_{n\to +\infty}b_{n}=+\infty$.
+
+Allora:
+
+- $\lim_{n\to +\infty}(a_{n}+b_{n})=+\infty$.
+- $\lim_{n\to +\infty}(a_{n}\cdot b_{n})=+\infty$.
+
+### Forme d'indeterminazione
+
+Alcune operazioni tra limiti possono produrre, in certi casi, situazioni d'indeterminazione: $[\infty -\infty]$, $[\frac{\infty}{\infty}]$, $[0\cdot\infty]$, $\left[\frac{0}{0}\right]$, $[1^{\infty}]$.
+
+La risoluzione delle forme d'indeterminazione consiste, ove possibile, nel ricondursi mediante passaggi algebrici a situazioni note.
+
+### Gerarchia degli infiniti
+
+Teorema:
+
+- $\lim_{n\to +\infty}\frac{\log_{a}{n}}{n^{\alpha}}=0$ $\forall\alpha >0$, $\forall a>1$.
+- $\lim_{n\to +\infty}\frac{n^{\alpha}}{a^{n}}=0$ $\forall\alpha >0$, $\forall a>1$.
+- $\lim{n\to +\infty}\frac{a^{n}}{n!}=0$ $\forall a>1$.
+- $\lim{n\to +\infty}\frac{n!}{n^{n}}=0$.
+
+### Limiti notevoli
+
+#### Limiti notevoli con funzioni trigonometriche
+
+|   |   |
+|---|---|
+|$\lim_{n\to 0}\frac{\sin{n}}{n}=1$|$\lim_{n\to 0}\frac{\arcsin{n}}{n}=1$|
+|$\lim_{n\to 0}\frac{\tan{n}}{n}=1$|$\lim_{n\to 0}\frac{\arctan{n}}{n}=1$|
+|$\lim_{n\to 0}\frac{1-\cos{n}}{n}=0$|$\lim_{n\to 0}\frac{1-\cos{n}}{n^{2}}=\frac{1}{2}$|
+|$\lim_{n\to 0}\frac{\arccos{n}^{2}}{1-n}=2$|$\lim_{n\to 0}\frac{\sin{mn}}{\sin{nn}}=\frac{m}{n}$|
+
+#### Limiti notevoli con esponenziali e logaritmi
+
+|   |   |
+|---|---|
+|$\lim_{n\to \pm\infty}\left(1+\frac{k}{n}\right)^{n}=e^{k}$|$\lim_{n\to 0}\left(1+kn\right)^{\frac{1}{n}}=e^{k}$|
+|$\lim_{n\to 0}\frac{\ln{(1+n)}}{n}=1$|$\lim_{n\to 0}\frac{\log_{a}{(1+n)}}{n}=\log_{a}e$|
+|$\lim_{n\to 0}\frac{e^{n}-1}{n}=1$|$\lim_{n\to 0}\frac{a^{n}-1}{n}=\ln{a}$|
+|$\lim_{n\to 0}\frac{(1+n)^{k}-1}{n}=k$| |
