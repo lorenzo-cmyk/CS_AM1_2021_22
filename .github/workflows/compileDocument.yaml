@@ -29,7 +29,7 @@ jobs:
       - name: "Rename generated PDF"
         run: mv _book/_main.pdf _book/AppuntiAS2021-2022_ANALISI1.pdf
       - name: "Upload PDF"
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: "AppuntiAS2021-2022_ANALISI1.pdf"
           path: "_book/AppuntiAS2021-2022_ANALISI1.pdf"
