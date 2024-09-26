@@ -1,0 +1,35 @@
+name: "Compile RMarkdown document"
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - "**"
+  workflow_dispatch: null
+
+jobs:
+  compileRMarkdownToPDF:
+    name: "Compile RMarkdown document to PDF"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Check-out repository"
+        uses: actions/checkout@v3
+      - name: "Set up R"
+        uses: r-lib/actions/setup-r@v2
+      - name: "Set up Pandoc"
+        uses: r-lib/actions/setup-pandoc@v2
+      - name: "Set up LaTeX"
+        uses: r-lib/actions/setup-tinytex@v2
+      - name: "Install Bookdown"
+        run: Rscript -e "install.packages('bookdown')"
+      - name: "Compile document to PDF"
+        run: Rscript -e "bookdown::render_book('.', 'bookdown::pdf_book')"
+      - name: "Rename generated PDF"
+        run: mv _book/_main.pdf _book/AppuntiAS2021-2022_ANALISI1.pdf
+      - name: "Upload PDF"
+        uses: actions/upload-artifact@v3
+        with:
+          name: "AppuntiAS2021-2022_ANALISI1.pdf"
+          path: "_book/AppuntiAS2021-2022_ANALISI1.pdf"
